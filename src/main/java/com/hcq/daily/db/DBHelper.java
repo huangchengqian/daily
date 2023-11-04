@@ -1,12 +1,9 @@
 package com.hcq.daily.db;
 
-import ch.qos.logback.core.joran.sanity.Pair;
-import com.hcq.daily.VO.DataSourceVO;
+import com.hcq.daily.vo.DataSourceVO;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
-import org.apache.juli.logging.Log;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Service;
 
 import java.sql.Connection;
 import java.sql.SQLException;
