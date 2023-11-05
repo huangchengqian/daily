@@ -1,6 +1,5 @@
 package com.hcq.daily.db;
 
-import com.hcq.daily.vo.DataSourceVO;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.context.annotation.Configuration;
@@ -29,7 +28,7 @@ public class DBHelper {
             // synchronized (DBHelper.class) {
                 if (!dsCache.containsKey(dsCode)) {
                     System.out.printf("==============%s获取连接，新建数据源=============\n", dsCode);
-                    DataSourceVO dataSourceVO = new DataSourceVO();
+                    com.hcq.daily.VO.DataSourceVO dataSourceVO = new com.hcq.daily.VO.DataSourceVO();
                     dataSourceVO.setDataSourceCode(dsCode);
                     dataSourceVO.setDataSourceUrl("jdbc:postgresql://127.0.0.1:5432/postgres");
                     dataSourceVO.setDbAccount("postgres");
@@ -42,7 +41,7 @@ public class DBHelper {
         return dsCache.get(dsCode);
 }
 
-    private void getConfigDataSourceVO(DataSourceVO dataSourceVO) {
+    private void getConfigDataSourceVO(com.hcq.daily.VO.DataSourceVO dataSourceVO) {
         System.out.println("new ds!");
         HikariConfig config = new HikariConfig();
         config.setJdbcUrl(dataSourceVO.getDataSourceUrl());
